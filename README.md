@@ -4,16 +4,16 @@ Framework for Educational Data Mining Developed By Universidade de Pernambuco.
 
 ## Requirements:
 
-* Python `3.7.6`.
-* Yarn `1.22.0`.
-* npm `6.13.7`.
-* nodejs `13.9.0`.
-* Git `2.17.1` or superior.
-* For production deploy, we strongly install on `Ubuntu 18.04`.
+* Python `3.9.13`.
+* Yarn `1.22.19`.
+* npm `9.8.1`.
+* nodejs `16.13.0`.
+* Git `2.41.0` or superior.
+* For production deploy, we strongly install on `Ubuntu 23.04`.
 
 ## Minimal Hardware
 
-* 4 GB
+* 4 GB (Ram)
 * 2 CPUs
 * 80 GB/ SSD DISK
 
