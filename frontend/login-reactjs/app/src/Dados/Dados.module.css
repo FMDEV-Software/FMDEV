@@ -1,0 +1,11 @@
+.header {
+    background-color: purple;
+    color: white;
+    margin-top: 0;
+    height: 50px;
+}
+/* Background da página */
+.back {
+    background-color: #333;
+    height: 100vh;
+}

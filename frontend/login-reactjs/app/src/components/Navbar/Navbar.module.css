@@ -1,0 +1,45 @@
+/* Corpo geral da barra */
+.bar {
+    position: absolute;
+    background-color: #8b00fd50;
+    height: calc(100vh - 50px);
+    width: 120px;
+    padding: 0;
+}
+
+/* Organização da listagem */
+.list {
+    display: grid;
+    grid-template-columns: 2fr;
+    gap: 20px;
+    padding: 10px;
+}
+
+/* Botão para a página principal */
+.home {
+    font-size: x-large;
+    color: white;
+    text-decoration: none;
+}
+
+.home:hover {
+    font-size: x-large;
+    color: purple;
+    text-decoration: underline;
+}
+
+/* Botão para cada item */
+.item {
+    list-style: none;
+    color: black;
+    text-decoration: none;
+}
+
+.item:hover {
+    list-style: none;
+    color: white;
+    background-color: purple;
+    border-radius: 3px;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px black;
+}
