@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperação de Senha</title>
+    <link rel="stylesheet" href="css/confirma_senha.css">
+</head>
+<body>
+    <div class="container">
+        <span class="recuperacao-form-tittle">Atualização de senha</span>
+              
+        <div class="container-recuperacao-interno">
+                <p id="mensagem1"></p>
+                <input class="input" type="password" placeholder ="Senha" id="senha1" autofocus required/>
+
+                <p id="mensagem2"></p>
+                <input class="input" type="password" placeholder ="Senha" id="senha2" required/>
+                <p id="mensagem-erro"></p>
+
+
+            <div class="container-entrar-form-btn">
+				<input type="submit" onclick="logar()" class="entrar-form-btn"></input>
+            </div>
+        </div>
+    </div>
+    <script src="js/confirma_senha.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Recuperação de Senha</title>
+    <link rel="stylesheet" href="css/recupera_senha.css">
+</head>
+<body>
+    <div class="container">
+        <span class="recuperacao-form-tittle">Esqueci minha senha</span>
+              
+        <div class="container-recuperacao-interno">
+                <p id="mensagem"></p>
+                <input class="input" type="email" placeholder ="E-mail" id="email" title="O e-mail deve ser '@upe.br' ou '@poli.br'." autofocus required/>
+                <span class="focus-input" data-aria-placeholder='E-mail'></span>
+                <p id="mensagem-erro"></p>
+
+            <div class="container-entrar-form-btn">
+				<input type="submit" onclick=" verificarEmail()" class="entrar-form-btn"></input>
+            </div>
+        </div>
+    </div>
+    <script src="js/recupera_senha.js"></script>
+</body>
+</html>
