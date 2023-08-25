@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login FMDEV</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <img class="img-squares" src="./assets/login_squares.svg" alt="">
+        <div class="wrap-login">
+            <span class="login-tittle">UPE / FMDEV</span>
+            <img class="img-logo" src="./assets/login_logo.svg" alt="FMDEV">
+
+            <div class="wrap-input">
+                <input class="email" type="email" placeholder ="E-mail"/>
+                <span class="focus-input" data-aria-placeholder='E-mail'></span>
+
+                <div class="wrap-button">
+                <!-- botão que será substituido pelo botão do google da api do firebase -->
+                    <div class="wrap-input" class="google-autentication-btn">
+                        <button type="submit" onclick="funcaoGoogle()" class="autentication-btn">Sing in with Google</button>
+                        <p id="mensagem"></p>
+                    </div>
+    
+                    <div class="wrap-input">
+                        <button type="submit" onclick="entrar()" class="enter-btn" disabled>Entrar na plataforma</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img class="img-squares" src="./assets/login_squares.svg" alt="">
+    </div>
+    <script src="./js/index.js"></script>
+</body>
+</html>
