@@ -1,11 +1,8 @@
 import React, {useState} from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import {  createUserWithEmailAndPassword  } from 'firebase/auth';
-import { getAuth } from 'firebase/auth';
-import { initializeApp } from 'firebase/app';
+import { auth } from './Firebase';
 
-initializeApp();
- 
 const CadastroDev = () => {
 
     const navigate = useNavigate();
@@ -15,8 +12,21 @@ const CadastroDev = () => {
  
     const onSubmit = async (e) => {
       e.preventDefault()
-     
-      await createUserWithEmailAndPassword(getAuth(), email, password)
+
+      var temp = email.split('');
+      var index = 0;
+
+      for(;index<temp.length;++index) {
+        if(temp[index] === '@') break;
+      }
+
+      console.log(email.substring(index));
+
+      if(email.substring(index) !== "@poli.br" && email.substring(index) !== "@upe.br") {
+        console.log("Domínio não permitido");
+      } else {
+
+        await createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             console.log(user);
@@ -27,8 +37,9 @@ const CadastroDev = () => {
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
         });
- 
-   
+
+      }
+
     }
  
   return (
