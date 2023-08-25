@@ -6,7 +6,8 @@ import Dados from '../Dados/Dados';
 import CsvHolder from '../CsvHolder/CsvHolder';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
+import CadastroDev from '../CadastroDev';
+import LoginDev from '../LoginDev';
 
 const AppRoutes = () => {
    return(
@@ -17,10 +18,13 @@ const AppRoutes = () => {
                 <Route path="/confirmasenha" element = { <ConfirmaSenha/> }></Route>
                 <Route path="/dados" element = { <Dados/> }></Route>
 
-                <Route path="/dados/alunos" element = { <CsvHolder tipo="Alunos"/> }></Route>
-                <Route path="/dados/tccs" element = { <CsvHolder tipo="TCC's"/> }></Route>
-                <Route path="/dados/artigos" element = { <CsvHolder tipo="Artigos Científicos"/> }></Route>
-                <Route path="/dados/professores" element = { <CsvHolder tipo="Professores"/> }></Route>
+                <Route exact path="/dados/alunos" element = { <CsvHolder tipo="Alunos"/> }></Route>
+                <Route exact path="/dados/tccs" element = { <CsvHolder tipo="TCC's"/> }></Route>
+                <Route exact path="/dados/artigos" element = { <CsvHolder tipo="Artigos Científicos"/> }></Route>
+                <Route exact path="/dados/professores" element = { <CsvHolder tipo="Professores"/> }></Route>
+
+                <Route path="/cadastro" element = { <CadastroDev/> }></Route>
+                <Route path="/logdev" element = { <LoginDev/> }></Route>
             </Routes>
        </Router>
    )
