@@ -1,31 +1,53 @@
 import React, { useState } from 'react';
-//import { Link } from 'react-router-dom';
-import './login.css'; // Certifique-se de que o arquivo App.css está na mesma pasta que o componente
+import { useNavigate } from 'react-router-dom';
+import './login.css'; 
 import login_squares from "../../assets/login_squares.svg";
 import login_logo from "../../assets/login_logo.svg"
+import { signInWithGoogle } from '../../Firebase'
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+  const [emailInput, setEmail] = useState('');
+  const [buttonText, setButtonText] = useState('Testar E-mail');
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false);
+  const navigate = useNavigate();
 
-const habilitaBotao = () => {
+  const mensagemErro = (texto) => {
+    const novaMensagemErro = document.createElement('p');
+    const mensagem = `
+      <p style='color: red;'>${texto}</p>
+      `;
+      novaMensagemErro.innerHTML = mensagem;
 
-  const regexEmail = /^[a-zA-Z0-9._-]+@(upe\.br|poli\.br)$/;
-
-  if(regexEmail.test(email)) {
-    setIsButtonDisabled(false);
-  } else {
-    setIsButtonDisabled(true);
+      return novaMensagemErro;
   }
-};
 
-const funcaoGoogle = () => {
-  return;
-} 
+  const testaEmail = (e) => {
+    e.preventDefault();
 
-const entrar = () => {
-  return;
-}
+    const email =  localStorage.getItem('email');
+    const index = email.indexOf('@');
+
+    if (index === -1 || (email.substring(index) !== '@poli.br' && email.substring(index) !== '@upe.br' && email.substring(index) !== '@ecomp.poli.br')) {
+      
+      setEmail(email);
+      const error = mensagemErro(
+        "O e-mail deve ser '@upe.br' ou '@poli.br'."
+      );
+      document.querySelector('.resultado').appendChild(error);
+      setButtonText('E-mail Recusado');
+      setIsButtonDisabled(true);
+    } else {
+      
+      setEmail(email);
+      setButtonText('Entrar na Plataforma');
+
+      if(document.querySelector('.enter-btn').addEventListener("click", function () {
+         /* Em navigate se passará o caminho do FMDEV -> que precisará ser antes adicionada a 'routes.js' */
+        navigate('/home');
+      })){}
+    }
+
+  }
 
   return (
     <div className="container">
@@ -39,35 +61,34 @@ const entrar = () => {
             className="email"
             type="email"
             placeholder="E-mail"
-            value={email}
+            value={emailInput}
             onChange={(e) => {
               setEmail(e.target.value);
-              habilitaBotao();
+              testaEmail();
             }}
+            disabled
           />
           <span className="focus-input" data-aria-placeholder="E-mail"></span>
+          <p className="resultado"></p>
 
           <div className="wrap-button">
-            {/* Botão que será substituído pelo botão do Google da API do Firebase */}
             <div className="wrap-input google-autentication-btn">
               <button
-                type="submit"
-                onClick={() => funcaoGoogle()}
-                className="autentication-btn"
+                onClick={signInWithGoogle}
+                class="login-with-google-btn"
               >
-                Sign in with Google
+                Sign In With Google
               </button>
-              <p id="mensagem"></p>
             </div>
 
             <div className="wrap-input">
               <button
                 type="submit"
-                onClick={() => entrar()}
                 className="enter-btn"
+                onClick={testaEmail}
                 disabled={isButtonDisabled}
               >
-                Entrar na plataforma
+                {buttonText}
               </button>
             </div>
           </div>
